@@ -4,5 +4,5 @@ function myFunction() {
     'contentType': 'application/json',
   };
   
-  const response = UrlFetchApp.fetch('https://finder-api.now.sh/feed', options);
+  const response = UrlFetchApp.fetch('YOUR API', options);
 }
