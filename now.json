@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [{ "src": "index.js", "use": "@now/node" }],
+  "routes": [{ "src": "(.*)", "dest": "index.js" }],
+  "env": {
+    "ACCESS_TOKEN": "access_token",
+    "GOOGLE_ACCOUNT": "google_account",
+    "GOOGLE_APP_TOKEN": "google_app_token"
+  }
+}

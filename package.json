@@ -1,0 +1,29 @@
+{
+  "name": "FinderApi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "now dev",
+    "deploy": "now --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shinyaigeek/FinderApi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shinyaigeek/FinderApi/issues"
+  },
+  "homepage": "https://github.com/Shinyaigeek/FinderApi#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "feedly": "^0.1.6",
+    "node-fetch": "^2.6.0",
+    "now": "^17.0.3",
+    "python-shell": "^1.0.8"
+  }
+}
