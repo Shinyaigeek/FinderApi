@@ -4,6 +4,20 @@ const express = require('express');
 
 const app = express();
 
+/* you can filtering which article should be transitioned to Google Keep. You should make filtering func return boolean
+
+data has property
+* * title : string article's title
+* * author: string article's author
+* * origin: {
+  title: string blog's title
+  htmlUrl: string blog's origin url
+}
+*/
+function filtering (data) {
+  return true;
+}
+
 // Listen
 app.listen(port = 3000, () => {
     console.log(`Server is running on port ${port} Visit http://localhost:${port}`);
@@ -76,32 +90,33 @@ app.get("/feed", async (req, res) => {
   }
 
   const stream = await getPersonalStreamsFeedly(
-    ACCESS_TOKEN,
-    "feed/http://jser.info/rss"
+    ACCESS_TOKEN
   );
 
   const readed = [];
 
   if (!stream.errorCode) {
     for (let item of stream.items) {
-      PythonShell.runString(
-        `import gkeepapi
-          
+      if(filtering(item)){
+        PythonShell.runString(
+          `import gkeepapi
+            
 keep = gkeepapi.Keep();
 success = keep.login('${GOOGLE_ACCOUNT}', '${GOOGLE_APP_TOKEN}');
-          
+            
 readlater = keep.findLabel('todo');
-
+  
 note = keep.createNote('${item.originId}');
 note.labels = readlater;
 keep.sync()
-          `,
-        null,
-        function(err) {
-          if (err) throw err;
-          readed.push(item.id);
-        }
-      );
+            `,
+          null,
+          function(err) {
+            if (err) throw err;
+            readed.push(item.id);
+          }
+        );
+      }
     }
   }
 

@@ -24,6 +24,3 @@ After you can deploy node-server to now, all you have to do is just make gas pro
 gs script sample exists in this repo, Please check!!.
 
 Don't forget set trigger!!
-
-## Todo
-* make Fn to judge script should transition some article to google keep or not.
